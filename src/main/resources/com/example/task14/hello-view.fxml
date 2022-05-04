@@ -23,7 +23,7 @@
             <TextField fx:id="Name" prefWidth="100.0" />
             <Label text="Введите чило монет" />
             <TextField fx:id="Count" />
-            <Button mnemonicParsing="false" onAction="#onStart" text="Начать игру" />
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onStart" text="Начать игру" />
          </children>
          <opaqueInsets>
             <Insets top="10.0" />

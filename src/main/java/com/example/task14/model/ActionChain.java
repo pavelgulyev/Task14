@@ -7,7 +7,7 @@ public class ActionChain {
     public static int SUCCESS = 1;
     public static int LOSS = 3;
     Random generate;
-    final int NUMHANDLER = 4;
+    final int NUMHANDLER = 2;
     final int NUMMAX = 7;
 
     public ActionChain() {

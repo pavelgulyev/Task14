@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.MotionBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +25,8 @@ public class HelloController implements Initializable {
     private ImageView view;
     @FXML
     private Label welcomeText;
-
+    @FXML
+    private Button btnStart;
     @FXML
     private TextField Name;
     @FXML
@@ -95,7 +98,12 @@ public class HelloController implements Initializable {
     }
 
     public void onStart(ActionEvent actionEvent) {
+        if(!init()) return;//проверка ликвидности
         player1 = new Player(Name.getText(),Integer.parseInt (Count.getText().trim()));
         player1.pay(1);
+        MotionBlur motionBlur = new MotionBlur();
+        motionBlur.setRadius(20);
+        motionBlur.setAngle(150.0);
+        btnStart.setEffect(motionBlur);
     }
 }
