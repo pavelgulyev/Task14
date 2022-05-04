@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.task14.controller.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Label fx:id="welcomeText">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="view" fitHeight="350.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Введите имя " />
+            <TextField fx:id="Name" prefWidth="100.0" />
+            <Label text="Введите чило монет" />
+            <TextField fx:id="Count" />
+            <Button mnemonicParsing="false" onAction="#onStart" text="Начать игру" />
+         </children>
+         <opaqueInsets>
+            <Insets top="10.0" />
+         </opaqueInsets>
+      </HBox>
+      <Button fx:id="Play" mnemonicParsing="false" onAction="#onPlay" text="Играть" />
+      <HBox prefHeight="100.0" prefWidth="200.0" />
+   </children>
+</VBox>
