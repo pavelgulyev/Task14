@@ -101,7 +101,6 @@ public class HelloController implements Initializable {
         motionBlur.setRadius(20);
         motionBlur.setAngle(150.0);
         System.out.println(player1.getCount());
-
         DropShadow dropShadow2 = new DropShadow();
         dropShadow2.setOffsetX(70.0);
         dropShadow2.setOffsetY(45.0);
