@@ -4,6 +4,10 @@ public class Player {
     private String name;
     private Integer count;
     private Integer number;
+
+    public String getName(){
+        return this.name;
+    }
     public Player(String name, Integer number) {
         this.name = name;
         this.number = number;

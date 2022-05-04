@@ -9,7 +9,7 @@ import java.util.Optional;
 import static com.example.task14.model.ActionChain.LOSS;
 
 public class NegativeHandler extends Handler {
-
+    private String NamePlayer;
 
     public NegativeHandler(Handler processor) {
         super(processor);

@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.MotionBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,20 +37,18 @@ public class HelloController implements Initializable {
     public ActionChain action;
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+
     }
 
     public void onPlay(ActionEvent actionEvent) {
         if(!init()) return;//проверка ликвидности
         File file = new File("C:\\Users\\TDKpo\\Desktop\\Учёба\\2 Семестр 3 курс\\Технология программирования\\Task 14\\src\\main\\java\\com\\example\\task14\\controller\\мешочек.png");
-        // --> file:/C:/MyImages/myphoto.jpg
         String localUrl = null;
         try {
             localUrl = file.toURI().toURL().toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
         Image image = new Image(localUrl);
         view.setImage(image);//загрузка автомата
         action=new ActionChain();//запуск механизма розыгрыша
@@ -62,14 +61,12 @@ public class HelloController implements Initializable {
             alert.show();
             action=null;
             File file = new File("C:\\Users\\TDKpo\\Desktop\\Учёба\\2 Семестр 3 курс\\Технология программирования\\Task 14\\src\\main\\java\\com\\example\\task14\\controller\\монетки.png");
-            // --> file:/C:/MyImages/myphoto.jpg
             String localUrl = null;
             try {
                 localUrl = file.toURI().toURL().toString();
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-
             Image image = new Image(localUrl);
             view.setImage(image);
             return false;
@@ -79,6 +76,7 @@ public class HelloController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        welcomeText.setText("Welcome to JavaFX Application!");
         File file = new File("C:\\Users\\TDKpo\\Desktop\\Учёба\\2 Семестр 3 курс\\Технология программирования\\Task 14\\src\\main\\java\\com\\example\\task14\\controller\\монетки.png");
         // --> file:/C:/MyImages/myphoto.jpg
         String localUrl = null;
@@ -87,7 +85,6 @@ public class HelloController implements Initializable {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-
         Image image = new Image(localUrl);
         view.setImage(image);
         view.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
@@ -98,12 +95,17 @@ public class HelloController implements Initializable {
     }
 
     public void onStart(ActionEvent actionEvent) {
-        if(!init()) return;//проверка ликвидности
         player1 = new Player(Name.getText(),Integer.parseInt (Count.getText().trim()));
-        player1.pay(1);
+        player1.pay(0);
         MotionBlur motionBlur = new MotionBlur();
         motionBlur.setRadius(20);
         motionBlur.setAngle(150.0);
-        btnStart.setEffect(motionBlur);
+        System.out.println(player1.getCount());
+
+        DropShadow dropShadow2 = new DropShadow();
+        dropShadow2.setOffsetX(70.0);
+        dropShadow2.setOffsetY(45.0);
+        dropShadow2.setRadius(20);
+        view.setEffect(dropShadow2);
     }
 }
